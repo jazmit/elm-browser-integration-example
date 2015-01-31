@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="elm"></div>
+    <script src="elm.js"></script>
+    <script type="text/javascript">
+      var div = document.getElementById('elm');
+      var elmApp = Elm.embed(Elm.BrowserIntegrationExample, div,
+        { initialLocation: window.location.search.substring(1) });
+      elmApp.ports.location.subscribe(function (newValue) {
+          history.replaceState({}, "", "?" + newValue);
+      })
+    </script>
+    </div>
+  </body>
+</html>
